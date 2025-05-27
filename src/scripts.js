@@ -12,13 +12,6 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all elements with data-animate attribute
 document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-// Add click event listeners to all buttons
-document.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    window.open('https://wa.me/5511911007812?text=Olá! Gostaria de solicitar um orçamento para assistência técnica.', '_blank')
-  });
-});
-
 // Optional: Add smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
