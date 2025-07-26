@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RD Suprema - Manutenção Especializada em Lava e Seca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #18304b;
+      --secondary: #1e824c;
+      --third: #1f2937;
+      --accent: #fff;
+      --gray-bg: #f5f6fa;
+      --card-bg: #fff;
+      --text: #222;
+      --muted: #666;
+      --radius: 16px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --green-btn: #2ecc71;
+      --green-btn-hover: #27ae60;
+      --icon-blue: #18304b;
+      --icon-bg: #eaf1fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', Arial, sans-serif; background: var(--primary); color: var(--text); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    header.hero {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: url('../assets/images/RD-Supreme-Home-1.webp') center/cover no-repeat;
+      color: var(--accent);
+      padding-bottom: 80px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(24, 48, 75, 0.82);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 600px;
+      margin-left: 25vw;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero .cta-btn {
+      background: var(--green-btn);
+      color: #fff;
+      padding: 18px 38px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 18px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .hero .cta-btn:hover { background: var(--green-btn-hover); }
+    .diferenciais {
+      display: flex;
+      gap: 32px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 2;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin: 0 0 0 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      border-radius: 0;
+      align-items: stretch;
+    }
+    .diferenciais-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .card-diferencial {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: var(--radius);
+      padding: 40px 28px 32px 28px;
+      flex: 1 1 300px;
+      min-width: 280px;
+      max-width: 320px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      justify-content: flex-start;
+    }
+    .card-diferencial .icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--icon-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .card-diferencial .icon-circle svg {
+      width: 32px;
+      height: 32px;
+      color: var(--icon-blue);
+      fill: var(--icon-blue);
+    }
+    .card-diferencial h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--icon-blue);
+    }
+    .card-diferencial p {
+      color: #6c7a89;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    section {
+      margin: 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    /* Depoimentos */
+    .testimonials-section {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: linear-gradient(180deg, rgba(24,48,75,0.95) 0%, rgba(24,48,75,0.8) 50%, rgba(255,255,255,0.95) 100%), url('../assets/images/RD-Supreme-Home-1.webp') center/cover no-repeat;
+      padding: 64px 0 64px 0;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonials-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+    .testimonials-title::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: #fff;
+      opacity: 0.5;
+      margin-right: 18px;
+    }
+    .testimonials-title::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+    }
+    .testimonials {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 0 24px 0;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonial-slider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto;
+      min-height: 280px;
+    }
+    .testimonial {
+      min-width: 280px;
+      max-width: 340px;
+      text-align: center;
+      padding: 0 12px;
+      opacity: 0;
+      transition: opacity 0.4s;
+      position: absolute;
+      left: 0; right: 0; margin: auto;
+      display: none;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .testimonial.active { 
+      opacity: 1; 
+      position: relative; 
+      display: block;
+    }
+    .testimonial-pair {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      align-items: stretch;
+      opacity: 0;
+      transition: opacity 0.4s;
+      position: absolute;
+      left: 0; right: 0; margin: auto;
+      display: none;
+      width: 100%;
+    }
+    .testimonial-pair.active {
+      opacity: 1;
+      position: relative;
+      display: flex;
+    }
+    .testimonial-pair .testimonial {
+      flex: 1;
+      max-width: 320px;
+      position: relative;
+      opacity: 1;
+      display: block;
+    }
+    .testimonial img {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px auto;
+    }
+    .testimonial .name { font-weight: 600; margin-top: 8px; }
+    .testimonial .stars { color: #f1c40f; margin-bottom: 8px; }
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .testimonial-nav button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px; height: 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonial-nav button:hover { background: #122136; }
+    /* Chamada para ação */
+    .cta-wrapper {
+      background: #e7e7e7;
+      padding: 48px 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-bottom: 0;
+    }
+    .cta-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 32px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-section img {
+      width: 380px;
+      height: 380px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .cta-content { flex: 1; }
+    .cta-content h2 { font-size: 2rem; margin-bottom: 16px; font-weight: 700; }
+    .cta-content p { color: var(--muted); margin-bottom: 16px; }
+    .cta-numbers {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-numbers .num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .cta-numbers .desc { font-size: 1rem; color: var(--muted); }
+    .cta-section .cta-btn, .contact-section .cta-btn {
+      margin-top: 0;
+      background: var(--green-btn);
+      color: #fff;
+      padding: 18px 38px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .cta-section .cta-btn:hover, .contact-section .cta-btn:hover {
+      background: var(--green-btn-hover);
+    }
+    /* Marcas */
+    .brands-wrapper {
+      background: #e7e7e7;
+      padding: 48px 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-bottom: 0;
+    }
+    .brands-section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 0;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .brands-slider {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      padding: 16px 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .brands-slider img {
+      height: 60px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 16px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      width: 120px;
+      flex-shrink: 0;
+    }
+    /* Mapa */
+    .map-section {
+      background: var(--primary);
+      color: #fff;
+      padding: 48px 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    .map-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .map-section iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+    }
+    .map-section p { text-align: center; color: rgba(255,255,255,0.9); margin-bottom: 16px; }
+    /* Contato */
+    .contact-wrapper {
+      background: var(--primary);
+      padding: 80px 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      border-top: none;
+      margin-bottom: 0;
+    }
+    .contact-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 48px 150px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-section h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .contact-section p { color: var(--muted); margin-bottom: 16px; }
+    /* Rodapé */
+    footer {
+      background: var(--third);
+      color: #fff;
+      padding: 48px 0 24px 0;
+      margin-top: 0;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .footer-section h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .footer-section p, .footer-section a {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .footer-section a:hover {
+      color: #fff;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+    .footer-bottom a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    /* WhatsApp fixo */
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 100;
+      background: #25d366;
+      border-radius: 50%;
+      width: 60px; height: 60px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      transition: background 0.2s;
+    }
+    .whatsapp-float:hover { background: #128c7e; }
+    .whatsapp-float img { width: 36px; height: 36px; }
+    @media (max-width: 900px) {
+      .diferenciais, .cta-section, .brands-section, .map-section { max-width: 98vw; }
+      .cta-section { flex-direction: column; align-items: flex-start; }
+      .cta-section img { margin-bottom: 16px; }
+      .hero-content { margin-left: 0; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .section-title { font-size: 1.5rem; }
+      .hero-content { 
+        max-width: 90vw; 
+        margin-left: 5vw;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        gap: 24px;
+      }
+      .diferenciais { 
+        flex-direction: column; 
+        gap: 20px; 
+        padding: 24px 16px;
+      }
+      .diferenciais-container {
+        gap: 20px;
+      }
+      .card-diferencial {
+        min-width: auto;
+        max-width: none;
+        padding: 32px 20px 24px 20px;
+      }
+      .cta-section { 
+        padding: 24px 16px; 
+        margin: 0 16px;
+      }
+      .cta-section img {
+        width: 100%;
+        height: 250px;
+      }
+      .contact-section { 
+        padding: 24px 20px; 
+        margin: 0 16px;
+      }
+      .brands-slider { 
+        gap: 16px; 
+        padding: 16px 20px;
+      }
+      .brands-slider img {
+        width: 100px;
+        height: 50px;
+      }
+      .testimonials {
+        margin: 0 16px;
+        padding: 24px 16px;
+      }
+      .testimonial-pair {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .testimonial {
+        max-width: none;
+        padding: 20px 16px;
+      }
+      .map-section {
+        padding: 32px 0;
+      }
+      .map-content {
+        padding: 0 16px;
+      }
+      .map-section iframe {
+        height: 250px;
+      }
+      .contact-wrapper {
+        padding: 40px 0;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 16px;
+      }
+      .footer-section {
+        text-align: center;
+      }
+      .footer-section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+      .footer-section p, .footer-section a {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+      }
+      .cta-btn {
+        padding: 16px 24px;
+        font-size: 1rem;
+      }
+      .hero .cta-btn {
+        padding: 16px 24px;
+        font-size: 1rem;
+      }
+      .cta-numbers {
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .cta-numbers .num {
+        font-size: 1.5rem;
+      }
+      .cta-numbers .desc {
+        font-size: 0.9rem;
+      }
+      .testimonials-title {
+        font-size: 1.5rem;
+        margin-bottom: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-content">
+      <div style="margin-bottom: 8px; font-size: 1rem; opacity: 0.8; font-weight: 700;"># Lava e Seca</div>
+      <h1>Manutenção Especializada em Lava e Seca</h1>
+      <p>Garantimos o funcionamento perfeito da sua lava e seca com técnicos experientes e atendimento ágil no conforto da sua casa</p>
+      <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0" class="cta-btn">Solicitar um orçamento agora</a>
+    </div>
+  </header>
+
+  <section class="diferenciais">
+    <div class="diferenciais-container">
+      <div class="card-diferencial">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M21.7 20.3l-3.4-3.4c.5-.9.7-1.9.7-2.9 0-3.3-2.7-6-6-6-.9 0-1.8.2-2.6.6l1.5 1.5c.3.3.3.7 0 1-.3.3-.7.3-1 0l-3-3c-.3-.3-.3-.7 0-1l3-3c.3-.3.7-.3 1 0 .3.3.3.7 0 1l-1.5 1.5c1-.5 2.1-.8 3.1-.8 4.4 0 8 3.6 8 8 0 1.1-.2 2.1-.7 3l3.4 3.4c.3.3.3.7 0 1-.3.3-.7.3-1 0z"/></svg>
+        </div>
+        <h3>Atendimento Ágil</h3>
+        <p>Chegamos rápido ao seu endereço, solucionando o problema da sua lava e seca no conforto da sua casa.</p>
+      </div>
+      <div class="card-diferencial">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <h3>Qualidade Garantida</h3>
+        <p>Serviço preciso, peças originais e total confiança no resultado.</p>
+      </div>
+      <div class="card-diferencial">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <h3>Técnicos especializados</h3>
+        <p>Técnicos altamente qualificados, preparados para resolver qualquer modelo de lava e seca com total eficiência.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="testimonials-title">Veja o que nossos clientes dizem sobre nós!</div>
+    <div class="testimonials">
+      <div class="testimonial-slider" id="testimonial-slider">
+        <div class="testimonial-pair active">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>"Serviço excelente! Atendimento rápido, preço justo e muita transparência. Recomendo sem pensar duas vezes."</p>
+            <img src="../assets/images/Lucia.webp" alt="Lucia Pereira">
+            <div class="name">Lucia Pereira</div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>"A rapidez no atendimento da RD Suprema me surpreendeu. Meu refrigerador foi consertado e está até melhor do que antes!"</p>
+            <img src="../assets/images/Rogerio.webp" alt="Rogério Martins Costa">
+            <div class="name">Rogério Martins Costa</div>
+          </div>
+        </div>
+        <div class="testimonial-pair">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>"O atendimento foi excelente e o técnico muito educado. Em pouco tempo meu problema foi resolvido!"</p>
+            <img src="../assets/images/Benedita.webp" alt="Benedita Rosa de Oliveira">
+            <div class="name">Benedita Rosa de Oliveira</div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>"Excelente atendimento! Me explicaram tudo com clareza e resolveram rápido. Muito satisfeito."</p>
+            <img src="../assets/images/Fernando.webp" alt="Fernando Lima">
+            <div class="name">Fernando Lima</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-nav">
+        <button id="testimonial-prev">&#8592;</button>
+        <button id="testimonial-next">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-wrapper">
+    <section class="cta-section">
+      <img src="../assets/images/generated-image-1.webp" alt="Equipe RD Suprema">
+      <div class="cta-content">
+        <h2>Sua lava e seca funcionando com transparência e agilidade.</h2>
+        <p>Conte com profissionais experientes, diagnóstico preciso e orçamento transparente. Desde falhas elétricas até problemas de vazamento, resolvemos tudo no conforto do seu lar.</p>
+        <div class="cta-numbers">
+          <div>
+            <div class="num">+ 5.000</div>
+            <div class="desc">manutenções realizadas</div>
+          </div>
+          <div>
+            <div class="num">+ 12</div>
+            <div class="desc">anos de experiência</div>
+          </div>
+          <div>
+            <div class="num">100%</div>
+            <div class="desc">satisfação dos clientes</div>
+          </div>
+        </div>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0" class="cta-btn">Enviar uma mensagem agora mesmo</a>
+      </div>
+    </section>
+  </section>
+
+  <section class="brands-wrapper">
+    <section class="brands-section">
+      <div class="section-title">Marcas que atendemos</div>
+      <div class="brands-slider" id="brands-slider">
+        <img src="../assets/images/Samsung.webp" alt="Samsung">
+        <img src="../assets/images/Toshiba.webp" alt="Toshiba">
+        <img src="../assets/images/LG.webp" alt="LG">
+        <img src="../assets/images/Brastemp.webp" alt="Brastemp">
+        <img src="../assets/images/Consul.webp" alt="Consul">
+        <img src="../assets/images/Electrolux.webp" alt="Electrolux">
+        <img src="../assets/images/Philco.webp" alt="Philco">
+        <img src="../assets/images/Midea.webp" alt="Midea">
+      </div>
+    </section>
+  </section>
+
+  <section class="map-section">
+    <div class="map-content">
+      <div class="section-title" style="color: #fff;">Venha nos visitar!</div>
+      <p>Atendemos nas regiões de Barueri, Brooklin, Butantã, Campo Belo, Campo Limpo, Cidade Jardim, Cotia, Embu das Artes, Itapecerica da Serra, Jardim das Vertentes, Lapa, Moema, Morumbi, Pinheiros, Santana de Parnaíba, Santo Amaro, Taboão da Serra, Vila Andrade, Vila Cordeiro, Vila Madalena, Vila Mariana, Vila Mascote, Vila Olímpia, Vila Progredior e Vila Sônia.</p>
+      <iframe src="https://maps.google.com/maps?q=RD%20Suprema%20Unidade%202%20%E2%80%94%20Assist%C3%AAncia%20em%20TV%2C%20Lavadora%2C%20Secadora%20Lava%20e%20Seca%2C%20Refrigerador%2C%20Micro-ondas%20e%20Ar-Condicionado&t=m&z=10&output=embed&iwloc=near" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <section class="contact-wrapper">
+    <div class="contact-section">
+      <h3>Fale com a gente e resolva hoje mesmo</h3>
+      <p>Nosso atendimento é humanizado e direto para você</p>
+      <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0" class="cta-btn">Solicitar um orçamento agora</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>RD Suprema</h4>
+        <p>Especialistas em manutenção e conserto de eletrodomésticos há mais de 12 anos. Atendimento rápido e profissional no conforto da sua casa.</p>
+        <p>CNPJ: 12.345.678/0001-90</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Serviços</h4>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Conserto de Lava e Seca</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+máquina+de+lavar.&type=phone_number&app_absent=0">Conserto de Máquina de Lavar</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+de+Microondas.&type=phone_number&app_absent=0">Conserto de Micro-ondas</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+de+Ar+Condicionado.&type=phone_number&app_absent=0">Conserto de Ar Condicionado</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+de+TV.&type=phone_number&app_absent=0">Conserto de TV</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+de+lavadora.&type=phone_number&app_absent=0">Conserto de Lavadora</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+de+secadora.&type=phone_number&app_absent=0">Conserto de Secadora</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Marcas Atendidas</h4>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Samsung</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">LG</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Brastemp</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Consul</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Electrolux</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Philco</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Toshiba</a>
+        <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0">Midea</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0"></a>(11) 91100-7812</a></p>
+        <p>Telefone: (11) 91100-7812</p>
+        <p>Email: contato@rdsuprema.com.br</p>
+        <p>Horário: Seg-Sex: 8h às 18h</p>
+        <p>Sábado: 8h às 12h</p>
+      </div>
+      
+    </div>
+    
+    <div class="footer-bottom">
+      <div>© 2024 RD Suprema - Todos os direitos reservados | Feito por <a href="https://mkt.i3digital.com.br/">i3digital</a></div>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send/?phone=5511911007812&text=Ol%C3%A1!+Vi+o+site+da+RD+Suprema+e+gostaria+de+um+or%C3%A7amento+para+conserto+da+minha+lava+e+seca.&type=phone_number&app_absent=0" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+    <img src="../assets/images/whatsapp-_1_.webp" alt="WhatsApp">
+  </a>
+
+  <script>
+    // Depoimentos slider
+    const testimonialPairs = document.querySelectorAll('.testimonial-pair');
+    let testimonialIndex = 0;
+    function showTestimonialPair(idx) {
+      testimonialPairs.forEach((el, i) => {
+        el.classList.toggle('active', i === idx);
+      });
+    }
+    document.getElementById('testimonial-prev').onclick = function() {
+      testimonialIndex = (testimonialIndex - 1 + testimonialPairs.length) % testimonialPairs.length;
+      showTestimonialPair(testimonialIndex);
+    };
+    document.getElementById('testimonial-next').onclick = function() {
+      testimonialIndex = (testimonialIndex + 1) % testimonialPairs.length;
+      showTestimonialPair(testimonialIndex);
+    };
+    // Auto-slide depoimentos
+    setInterval(() => {
+      testimonialIndex = (testimonialIndex + 1) % testimonialPairs.length;
+      showTestimonialPair(testimonialIndex);
+    }, 6000);
+
+    // Marcas slider (scroll automático)
+    // Removido o scroll automático das marcas pois agora estão em grid vertical
+  </script>
+</body>
+</html> 
